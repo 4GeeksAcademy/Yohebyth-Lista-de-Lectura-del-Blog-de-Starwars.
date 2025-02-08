@@ -4,6 +4,6 @@ import "../../styles/home.css";
 
 export const Home = () => (
 	<div className="text-center mt-5">
-		<h1>Prueba</h1>
+		<h1>Star Wars Persomajes</h1>
 	</div>
 );

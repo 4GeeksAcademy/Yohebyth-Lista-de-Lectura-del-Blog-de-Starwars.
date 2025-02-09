@@ -14,5 +14,5 @@
 
 .button-group {
     display: inline-flex;
-    gap: 10px; /* Espacio horizontal entre los botones */
+    gap: 1rem;
 }

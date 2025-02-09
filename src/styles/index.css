@@ -4,24 +4,26 @@ background-color: black;
 
 .nav-button {  
     float: right;
-    padding-right: 10px;
-    margin-right: 5px;
+    padding-right: 1rem;
+    margin-right: 0.5rem;
 }
  
 .bt-navbar {
-     margin-right: 5px;
+     margin-right: 0.5rem;
 } 
 
 .navbar-logo {
-    height: 60px;
-    margin-left: 10px;
+    height: 4rem;
+    margin-left: 1rem;
 }
 
 .dropdown-menu{
     background-color: rgb(77, 81, 84);
     color: white;
     margin: 1rem;
+    --bs-dropdown-min-width: 14rem;
 }
+
 
 .lidropdown{
     padding: 1rem;

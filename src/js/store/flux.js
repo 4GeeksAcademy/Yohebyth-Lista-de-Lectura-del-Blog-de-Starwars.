@@ -1,4 +1,4 @@
-const getState = ({ getStore, getActions, setStore }) => {
+const getState = ({ getStore, setStore }) => {
 	return {
 		store: {
 			characters: [],
@@ -8,39 +8,48 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 			getCharacters: () => {
-				fetch("https://www.swapi.tech/api/people")
+				const store = getStore();			
+				if(store.characters.length===0){
+					fetch("https://www.swapi.tech/api/people")
 					.then(resp => {
 						return resp.json()
 					})
 					.then(data => setStore({ characters: data.results }))
 					.catch(err => console.error(err))
+				}				
 			},
 			getVehicles: () => {
-				fetch("https://www.swapi.tech/api/vehicles")
+				const store = getStore();
+				if(store.characters.length===0){
+					fetch("https://www.swapi.tech/api/vehicles")
 					.then(resp => {
 						return resp.json()
 					})
 					.then(data => setStore({ vehicles: data.results }))
 					.catch(err => console.error(err))
+				}				
 			},
 			getPlanets: () => {
-				fetch("https://www.swapi.tech/api/planets")
+				const store = getStore();
+				if(store.planets.length===0){
+					fetch("https://www.swapi.tech/api/planets")
 					.then(resp => {
 						return resp.json()
 					})
 					.then(data => setStore({ planets: data.results }))
 					.catch(err => console.error(err))
+				}				
 			},
-			addFavorite: (favorite) => {
+			addFavorite: (favorite_name) => {
 				const store=getStore();
-				setStore({ favorites: [...store.favorites, favorite]					
-				})
-				console.log(store.favorites);				
+				setStore({ favorites: [...store.favorites, favorite_name]					
+				})			
 			},
-			removeFavorite: (item) => {
+			removeFavorite: (favorite_name) => {
 				const store=getStore();
-				setStore({ favorites: store.favorites.filter((favorite) => favorite !== item)					
+				setStore({ favorites: store.favorites.filter((favorite) => favorite !== favorite_name)					
 				});
+				
 			}
 		}
 	};
